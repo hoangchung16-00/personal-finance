@@ -48,6 +48,9 @@ group :development, :test do
 
   # Omakase Ruby styling [https://github.com/rails/rubocop-rails-omakase/]
   gem "rubocop-rails-omakase", require: false
+
+  # Shim to load environment variables from .env into ENV in development. [https://github.com/bkeepers/dotenv]
+  gem "dotenv"
 end
 
 group :development do
