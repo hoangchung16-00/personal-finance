@@ -23,11 +23,11 @@
   </head>
 
   <body class="bg-gradient-primary">
-    <div class="container-fluid">
-      <p class="notice"><%= notice %></p>
-      <p class="alert"><%= alert %></p>
-    </div>
     <div class="container">
+      <div class="alert alert-primary" role="alert">
+        <p class="notice"><%= notice %></p>
+        <p class="alert"><%= alert %></p>
+      </div>
       <%= yield %>
     </div>
   </body>
