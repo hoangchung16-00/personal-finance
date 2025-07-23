@@ -53,6 +53,7 @@ group :development, :test do
 
   # Shim to load environment variables from .env into ENV in development. [https://github.com/bkeepers/dotenv]
   gem "dotenv"
+  gem "pry"
 end
 
 group :development do
