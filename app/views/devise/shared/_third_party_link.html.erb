@@ -1,0 +1,9 @@
+<%- if devise_mapping.omniauthable? %>
+  <%- resource_class.omniauth_providers.each do |provider| %>
+    <%= button_to "#{omniauth_action(controller_name)} with #{camelizations_omniauth[provider]}",
+      omniauth_authorize_path(resource_name, provider),
+      data: { turbo: false },
+      class: "btn btn-#{camelizations_omniauth[provider].downcase} btn-user btn-block" %>
+    <br />
+  <% end %>
+<% end %>
