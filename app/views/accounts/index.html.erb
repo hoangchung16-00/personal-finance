@@ -1,0 +1,43 @@
+<div class="card shadow mb-4">
+	<div class="card-header py-3">
+		<h6 class="m-0 font-weight-bold text-primary">DataTables Example</h6>
+	</div>
+		<div class="card-body">
+			<div class="table-responsive">
+				<table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+					<thead>
+						<tr>
+							<th>Name</th>
+							<th>Type</th>
+							<th>Number</th>
+							<th>Bank</th>
+							<th>Balance</th>
+							<th>Created At</th>
+						</tr>
+					</thead>
+					<tfoot>
+						<tr>
+							<th>Name</th>
+							<th>Type</th>
+							<th>Number</th>
+							<th>Bank</th>
+							<th>Balance</th>
+							<th>Created At</th>
+						</tr>
+					</tfoot>
+					<tbody>
+						<% @accounts.each do |account| %>
+							<tr>
+								<td><%= account.name %></td>
+								<td><%= account.account_type %></td>
+								<td><%= account.number %></td>
+								<td><%= account.bank_name %></td>
+								<td><%= number_to_currency(account.balance, unit: account.currency, format: "%n %u") %></td>
+								<td><%= account.created_at.strftime("%Y-%m-%d") %></td>
+							</tr>
+						<% end %>
+				</table>
+			</div>
+		</div>
+</div>
+<%= render 'shared/pagination', total_page: 3, current_page: 1 %>
