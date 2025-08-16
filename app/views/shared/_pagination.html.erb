@@ -1,19 +1,21 @@
 <nav aria-label="Page navigation example">
   <ul class="pagination">
-    <li class="page-item <%= "disabled" if current_page == 1 %>">
-      <a class="page-link" href="#" aria-label="Previous">
+    <li class="page-item <%= "disabled" if pagy.prev.nil? %>">
+      <%= link_to(accounts_path(page: pagy.prev), class: "page-link", aria: { label: 'Previous' }) do %>
         <span aria-hidden="true">&laquo;</span>
         <span class="sr-only">Previous</span>
-      </a>
+      <% end %>
     </li>
-    <% (1..total_page).each do |page| %>
-      <li class="page-item <%= "disabled" if current_page == page %>"><a class="page-link" href="#"><%= page %></a></li>
+    <% (1..pagy.pages).each do |page| %>
+      <li class="page-item <%= "disabled" if pagy.page == page %>">
+        <%= link_to page, accounts_path(page:), class: "page-link" %>
+      </li>
     <% end %>
-    <li class="page-item <%= "disabled" if current_page == total_page %>">
-      <a class="page-link" href="#" aria-label="Next">
+    <li class="page-item <%= "disabled" if pagy.next.nil? %>">
+      <%= link_to(accounts_path(page: pagy.next), class: "page-link", aria: { label: 'Next' }) do %>
         <span aria-hidden="true">&raquo;</span>
         <span class="sr-only">Next</span>
-      </a>
+      <% end %>
     </li>
   </ul>
 </nav>

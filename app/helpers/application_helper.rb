@@ -1,4 +1,6 @@
 module ApplicationHelper
+  include Pagy::Frontend
+
   def camelizations_omniauth
     {
       google_oauth2: "Google",

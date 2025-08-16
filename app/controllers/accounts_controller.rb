@@ -1,6 +1,6 @@
 class AccountsController < ApplicationController
   before_action :authenticate_user!
   def index
-    @accounts = Account.where(user: current_user)
+    @pagy, @accounts = pagy(Account.where(user: current_user))
   end
 end
