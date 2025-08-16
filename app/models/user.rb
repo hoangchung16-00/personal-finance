@@ -7,12 +7,13 @@ class User < ApplicationRecord
           omniauth_providers: [ :google_oauth2, :facebook ]
 
   has_many :accounts, dependent: :destroy
+  has_many :categories, dependent: :destroy
 
   after_create :create_default_account
 
   private
 
   def create_default_account
-    accounts.create!(account_type: :cash, name: 'Default Cash Account')
+    accounts.create!(account_type: :cash, name: "Default Cash Account")
   end
 end
